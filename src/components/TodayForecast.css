@@ -1,0 +1,48 @@
+.today-forecat{
+    
+    flex: 9.5;
+    display: flex;
+}
+
+.right-side{
+    margin-left: 2rem;
+}
+
+.banner{
+    display: flex;
+    margin-bottom: 0px;
+}
+.temp-details{
+    margin-left: 3rem;
+    
+}
+
+.city{
+    margin-top: 15px;
+    font-size: 40px;
+    font-weight: 600;
+    color: rgb(32, 43, 59);
+    margin-bottom: 0;
+}
+
+.rain{
+    margin-top: 3px;
+    font-size: 16px;
+    color: rgb(147, 153, 162);
+    margin-bottom: 0px;
+}
+
+.temp{
+    margin-top: 25px;
+    font-weight: 600;
+    font-size: 64px;
+    color: rgb(32, 43, 59);
+    margin-bottom: 0px;
+}
+
+.image{
+    display: block;
+    margin-left: 30%;
+    margin-top: 50px;
+    
+}
