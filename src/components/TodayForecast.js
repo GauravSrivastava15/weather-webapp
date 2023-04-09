@@ -2,21 +2,23 @@ import React, { useState } from 'react'
 import "./TodayForecast.css"
 import Searchbox from './Searchbox'
 import AirDetails from './AirDetails'
-import { WEATHER_API_URL, WEATHER_API_KEY } from '../api';
 import FutureForecast from './FutureForecast';
 
 
 export default function TodayForecast() {
+
+  const api = process.env.REACT_APP_WEATHER_API
+
 
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
 
   const handleOnSearchChange = (searchData) =>{
     const [lat, lon] = searchData.value.split(" ");
-    console.log(lat,lon)
+    
 
-    const currentWeatherFetch = fetch(`${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`)
-    const forecastFetch = fetch(`${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`)
+    const currentWeatherFetch = fetch(`${process.env.REACT_APP_WEATHER_URL}/weather?lat=${lat}&lon=${lon}&appid=${api}&units=metric`)
+    const forecastFetch = fetch(`${process.env.REACT_APP_WEATHER_URL}/forecast?lat=${lat}&lon=${lon}&appid=${api}&units=metric`)
     
     
 
@@ -33,8 +35,7 @@ export default function TodayForecast() {
 
   }
 
-  console.log(forecast)
-  console.log(currentWeather)
+
    
   
   return (

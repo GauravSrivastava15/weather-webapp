@@ -1,17 +1,25 @@
 import React from 'react'
 import "./SearchBox.css"
 import { useState, useEffect } from 'react'
-import { GEO_API_URL, geoApiOptions } from '../api'
 import { AsyncPaginate } from "react-select-async-paginate"
 import useDebounce from '../hooks/useDebounce'
 
 const Searchbox = ({onSearchChange}) =>{
     
-    const [search, setSearch] = useState(null)
+    const apiOptions = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': process.env.REACT_APP_LOCATION_API_KEY,
+            'X-RapidAPI-Host': process.env.REACT_APP_LOCATION_API_URL
+        }
+    };
 
+
+    const [search, setSearch] = useState(null)
+    
     const loadOptions = (inputValue) => {
         return (
-            fetch(`${GEO_API_URL}/cities?minPopulation=1000000&namePrefix=${inputValue}`, geoApiOptions)
+            fetch(`${process.env.REACT_APP_GEO_URL}/cities?minPopulation=1000000&namePrefix=${inputValue}`, apiOptions)
             .then(response => response.json())
             .then(response => {
                 return {
